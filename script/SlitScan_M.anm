@@ -1,0 +1,10 @@
+--track0:分割数,2,256,2,1
+
+local ss = require("SlitScan_M")
+local split = obj.track0 or 2
+
+if obj.frame == 0 then
+  ss.Alloc(split)
+end
+
+ss.SlitScan()
