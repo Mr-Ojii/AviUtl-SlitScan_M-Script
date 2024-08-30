@@ -1,10 +1,21 @@
---track0:分割数,2,256,2,1
+--track0:Mode,0,1,0,0
+--track1:分割数,2,256,2,1
+--track2:Y,0,10000,0,1
+--track3:方向,0,3,0,1
 
 local ss = require("SlitScan_M")
-local split = obj.track0 or 2
+
+local mode = obj.track1 or 0
+local split = obj.track1 or 2
+local y = obj.track2 or 0
+local rot = (obj.track3 or 0) % 4
+
+obj.effect("ローテーション", "90度回転", rot)
 
 if obj.frame == 0 then
   ss.Alloc(split)
 end
 
 ss.SlitScan()
+
+obj.effect("ローテーション", "90度回転", -rot)
