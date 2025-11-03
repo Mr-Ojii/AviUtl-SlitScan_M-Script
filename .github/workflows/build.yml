@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
 
     - name: Download lua
       shell: pwsh
@@ -22,7 +22,7 @@ jobs:
       with:
         arch: x86
         
-    - uses: leafo/gh-actions-lua@v11
+    - uses: leafo/gh-actions-lua@v12
       with:
         luaVersion: 5.1.5
 
@@ -46,7 +46,7 @@ jobs:
         7z a SlitScan_M.zip *
         
     - name: Upload artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: SlitScan_M
         path: ${{ github.workspace }}/pub/SlitScan_M.zip
@@ -58,11 +58,11 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
       with:
         fetch-depth: 0
     
-    - uses: actions/download-artifact@v4
+    - uses: actions/download-artifact@v6
       with:
         name: SlitScan_M
         path: artifacts
