@@ -46,7 +46,7 @@ jobs:
         7z a SlitScan_M.zip *
         
     - name: Upload artifact
-      uses: actions/upload-artifact@v5
+      uses: actions/upload-artifact@v6
       with:
         name: SlitScan_M
         path: ${{ github.workspace }}/pub/SlitScan_M.zip
@@ -62,7 +62,7 @@ jobs:
       with:
         fetch-depth: 0
     
-    - uses: actions/download-artifact@v6
+    - uses: actions/download-artifact@v7
       with:
         name: SlitScan_M
         path: artifacts
